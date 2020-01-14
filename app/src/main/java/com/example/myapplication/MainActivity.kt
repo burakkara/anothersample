@@ -1,14 +1,14 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import com.google.android.material.tabs.TabLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import com.example.myapplication.architecture.BaseMvvmActivity
 import com.example.myapplication.ui.main.MainViewModel
 import com.example.myapplication.ui.main.SectionsPagerAdapter
+import com.google.android.material.tabs.TabLayout
 
-class MainActivity : BaseMvvmActivity<MainViewModel>() {
-    override val viewModelType = MainViewModel::class.java
+class MainActivity : AppCompatActivity() {
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

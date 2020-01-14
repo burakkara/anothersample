@@ -1,10 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdkVersion versions.minSdk
@@ -32,10 +37,17 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
     implementation "com.google.dagger:dagger:${versions.dagger}"
-    implementation "com.google.dagger:dagger-android:${versions.dagger}"
-    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
     implementation "androidx.room:room-runtime:${versions.room}"
+    implementation "com.google.code.gson:gson:${versions.gson}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.reactivexRxAndroid}"
+    implementation "android.arch.lifecycle:runtime:${versions.arch}"
+    annotationProcessor "android.arch.lifecycle:compiler:${versions.arch}"
+    implementation "android.arch.lifecycle:common-java8:${versions.arch}"
+    implementation "android.arch.lifecycle:extensions:${versions.arch}"
+    implementation "android.arch.lifecycle:reactivestreams:${versions.arch}"
+    compileOnly "org.glassfish:javax.annotation:10.0-b28"
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "androidx.arch.core:core-testing:${versions.coreTesting}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"
@@ -51,4 +63,5 @@ dependencies {
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
         exclude module: 'recyclerview-v7'
     }
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
 }

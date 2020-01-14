@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Verimi</string>
-    <string name="tab_text_1">PARTNERS</string>
-    <string name="tab_text_2">ADD PARTNER</string>
+    <string name="tab_partners">PARTNERS</string>
+    <string name="tab_add_partner">ADD PARTNER</string>
+    <string name="error_title">Error</string>
+    <string name="error_message">Partners failed to load</string>
 </resources>
