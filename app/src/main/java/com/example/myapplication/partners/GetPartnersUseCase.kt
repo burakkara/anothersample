@@ -10,6 +10,7 @@ class GetPartnersUseCase @Inject constructor(
 ) {
     fun run(): Single<List<PartnerViewModel>> {
         return partnersRepository.getPartners()
+            //.map { it.mapNotNull { item -> item.description != null && item.id != null } }
             .map { partners -> partners.map(PartnerMapper::map) }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.myapplication.partners
 
 import com.example.myapplication.ApiRetroService
+import com.example.myapplication.HeadersInterceptor
 import com.example.myapplication.UrlProvider
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -11,10 +12,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ApiImpl @Inject constructor(private val urlProvider: UrlProvider) : Api {
+class ApiImpl @Inject constructor(private val urlProvider: UrlProvider,
+                                  private val headersInterceptor: HeadersInterceptor) : Api {
     private val service: ApiRetroService = Retrofit.Builder()
         .baseUrl(urlProvider.baseUrl)
-        .client(OkHttpClient.Builder().build())
+        .client(OkHttpClient.Builder().addInterceptor(headersInterceptor).build())
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
