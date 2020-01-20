@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.myapplication.R
 import com.example.myapplication.architecture.AdapterDelegateManager
 import com.example.myapplication.architecture.DelegateRecyclerViewAdapter
 import com.example.myapplication.architecture.Injector
@@ -36,7 +37,7 @@ class PartnersFragment : Fragment(), OnItemClickListener<PartnerViewModel> {
         Injector.get().inject(this)
         viewModel =
             ViewModelProviders.of(this, viewModelFactory)[PartnersViewModel::class.java]
-        viewModel.updatePartnersList()
+        getShelfContent()
     }
 
     override fun onCreateView(
@@ -54,20 +55,41 @@ class PartnersFragment : Fragment(), OnItemClickListener<PartnerViewModel> {
             layoutManager = GridLayoutManager(context, 2)
             adapter = this@PartnersFragment.adapter
         }
+        setupPullToRefresh()
 
         onChange(viewModel.state) {
             when (it) {
                 is Resource.LoadedResource -> {
                     it.data.let(adapter::submitList)
+                    binding.partnersPullToRefresh.isRefreshing = false
                 }
                 is Resource.ErrorResource -> {
-
+                    binding.partnersPullToRefresh.isRefreshing = false
                 }
                 is Resource.LoadingResource -> {
-
+                    binding.partnersPullToRefresh.isRefreshing = true
                 }
             }
         }
+    }
+
+    private fun setupPullToRefresh() {
+        binding.partnersPullToRefresh.apply {
+            setColorSchemeResources(
+                R.color.refresh_4,
+                R.color.refresh_3,
+                R.color.refresh_2,
+                R.color.refresh_1
+            )
+            setOnRefreshListener {
+                getShelfContent()
+                isRefreshing = true
+            }
+        }
+    }
+
+    private fun getShelfContent() {
+        viewModel.updatePartnersList()
     }
 
     companion object {

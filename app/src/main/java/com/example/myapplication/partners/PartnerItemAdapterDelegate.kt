@@ -9,7 +9,7 @@ import com.example.myapplication.databinding.ListItemPartnerBinding
 class PartnerItemAdapterDelegate(
     private val onClickListener: OnItemClickListener<PartnerViewModel>
 ) : AdapterDelegate<PartnerViewModel> {
-    override fun isForModel(adapterModel: PartnerViewModel) = adapterModel is PartnerViewModel
+    override fun isForModel(model: PartnerViewModel) = model is PartnerViewModel // theoretically there should be more than single item type in the list
 
     override fun getModelForViewHolder(viewHolder: RecyclerView.ViewHolder): PartnerViewModel? {
         return (viewHolder as? ViewHolder)?.item
@@ -36,10 +36,6 @@ class PartnerItemAdapterDelegate(
         private val binding: ListItemPartnerBinding,
         private val onClickListener: OnItemClickListener<PartnerViewModel>
     )  : RecyclerView.ViewHolder(binding.root) {
-/*        override val contentId: String
-            get() = item?.offerId ?: ""
-        override val contentType = "offer"*/
-
         var item: PartnerViewModel? = null
             set(value) {
                 field = value

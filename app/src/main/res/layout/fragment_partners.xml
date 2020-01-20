@@ -9,13 +9,20 @@
         android:layout_height="match_parent"
         tools:context=".partners.PartnersFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/partnersList"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/partnersPullToRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:visibility="gone" />
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/partnersList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/list_item_partner"
+                tools:visibility="visible" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/partnerListEmpty"
@@ -24,7 +31,7 @@
             android:layout_marginTop="?actionBarSize"
             android:background="@color/white"
             android:visibility="gone"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/partnerListEmptyHeader"

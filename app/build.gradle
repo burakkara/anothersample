@@ -67,7 +67,6 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
     androidTestImplementation "androidx.test.espresso:espresso-idling-resource:${versions.espresso}"
-    // To be able to honor espresso-contrib dependencies, our support library dependencies must match espresso's
     androidTestImplementation("androidx.test.espresso:espresso-contrib:${versions.espresso}") {
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'

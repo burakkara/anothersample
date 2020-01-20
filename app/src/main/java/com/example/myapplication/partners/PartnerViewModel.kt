@@ -4,7 +4,7 @@ import com.example.myapplication.architecture.AdapterModel
 
 data class PartnerViewModel(
     override val id: String? = "99",
-    val name: String? = "default name",
-    val description: String? = "default description",
-    val imageUrl: String? = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Iceberg_in_the_Arctic_with_its_underside_exposed.jpg"
+    val name: String? = "placeholder name",
+    val description: String? = "why does my backend serves empty objects?",
+    val imageUrl: String? = "https://media.licdn.com/dms/image/C4D0BAQGK8oL5fRh-DA/company-logo_200_200/0?e=2159024400&v=beta&t=ndHMD_8h-LMhKXfml-_t-bcjNJTTrjJWAjKJotzdDyU"
 ): AdapterModel
