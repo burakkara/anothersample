@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.architecture.Resource
+import com.example.myapplication.partners.domain.usecase.GetPartnersUseCase
 import com.example.myapplication.util.SchedulersProvider
 import javax.inject.Inject
 

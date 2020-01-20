@@ -1,6 +1,6 @@
 package com.example.myapplication.partners
 
-import com.example.myapplication.architecture.AdapterModel
+import com.example.myapplication.architecture.adapter.AdapterModel
 
 data class PartnerViewModel(
     override val id: String? = "99",

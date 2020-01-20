@@ -1,7 +1,8 @@
 package com.example.myapplication.util.images
 
-import com.example.myapplication.Mapper
+import com.example.myapplication.architecture.adapter.Mapper
 
-interface CacheFileNamingStrategy : Mapper<String, String> {
+interface CacheFileNamingStrategy :
+    Mapper<String, String> {
     fun isFromCache(cachedFileName: String): Boolean
 }

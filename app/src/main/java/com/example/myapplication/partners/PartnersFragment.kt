@@ -10,15 +10,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myapplication.R
-import com.example.myapplication.architecture.AdapterDelegateManager
-import com.example.myapplication.architecture.DelegateRecyclerViewAdapter
-import com.example.myapplication.architecture.Injector
 import com.example.myapplication.architecture.Resource
+import com.example.myapplication.architecture.adapter.AdapterDelegateManager
+import com.example.myapplication.architecture.adapter.DelegateRecyclerViewAdapter
+import com.example.myapplication.architecture.di.Injector
 import com.example.myapplication.databinding.FragmentPartnersBinding
+import com.example.myapplication.partners.adapter.OnItemClickListener
+import com.example.myapplication.partners.adapter.PartnerItemAdapterDelegate
 import com.example.myapplication.util.onChange
 import javax.inject.Inject
 
-class PartnersFragment : Fragment(), OnItemClickListener<PartnerViewModel> {
+class PartnersFragment : Fragment(),
+    OnItemClickListener<PartnerViewModel> {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: PartnersViewModel
@@ -27,7 +30,9 @@ class PartnersFragment : Fragment(), OnItemClickListener<PartnerViewModel> {
     private val adapter: DelegateRecyclerViewAdapter<PartnerViewModel> by lazy {
         DelegateRecyclerViewAdapter(
             AdapterDelegateManager(
-                PartnerItemAdapterDelegate(this)
+                PartnerItemAdapterDelegate(
+                    this
+                )
             )
         )
     }

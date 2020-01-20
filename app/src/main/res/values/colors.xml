@@ -4,7 +4,8 @@
     <color name="black">#000000</color>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#00C077</color>
+
     <color name="refresh_1">#f4c6c6</color>
     <color name="refresh_2">#e98e8d</color>
     <color name="refresh_3">#e16867</color>
