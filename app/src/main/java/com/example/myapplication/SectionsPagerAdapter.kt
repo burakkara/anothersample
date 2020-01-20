@@ -19,7 +19,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return if (position == 0) {
             PartnersFragment.newInstance(position + 1)
         } else {
-            AddPartnerFragment.newInstance(position + 1)
+            AddPartnerFragment.newInstance()
         }
     }
 

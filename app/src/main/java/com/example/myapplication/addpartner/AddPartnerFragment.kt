@@ -68,15 +68,9 @@ class AddPartnerFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_SECTION_NUMBER = "section_number"
-
         @JvmStatic
-        fun newInstance(sectionNumber: Int): AddPartnerFragment {
-            return AddPartnerFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_SECTION_NUMBER, sectionNumber)
-                }
-            }
+        fun newInstance(): AddPartnerFragment {
+            return AddPartnerFragment()
         }
     }
 }
