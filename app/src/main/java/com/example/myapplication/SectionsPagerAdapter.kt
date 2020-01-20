@@ -17,7 +17,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         return if (position == 0) {
-            PartnersFragment.newInstance(position + 1)
+            PartnersFragment.newInstance()
         } else {
             AddPartnerFragment.newInstance()
         }
