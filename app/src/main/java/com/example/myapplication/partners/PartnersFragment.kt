@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -105,6 +106,10 @@ class PartnersFragment : Fragment(),
     }
 
     override fun onItemClick(model: PartnerViewModel) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(
+            requireActivity(),
+            "Not implemented since it looks redundant to write another page with no specs at all.",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
