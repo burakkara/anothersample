@@ -2,17 +2,18 @@ package com.example.myapplication.partners
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.myapplication.architecture.BaseViewModel
 import com.example.myapplication.architecture.Resource
 import com.example.myapplication.partners.domain.usecase.GetPartnersUseCase
 import com.example.myapplication.util.SchedulersProvider
+import com.example.myapplication.util.plusAssign
 import javax.inject.Inject
 
 class PartnersViewModel @Inject constructor(
     private val getPartnersUseCase: GetPartnersUseCase,
     private val schedulersProvider: SchedulersProvider
 ) :
-    ViewModel() {
+    BaseViewModel() {
 
     val state: LiveData<Resource<List<PartnerViewModel>>>
         get() = stateLiveData
@@ -24,7 +25,7 @@ class PartnersViewModel @Inject constructor(
     }
 
     fun updatePartnersList() {
-        getPartnersUseCase.run()
+        disposables += getPartnersUseCase.run()
             .subscribeOn(schedulersProvider.io())
             .observeOn(schedulersProvider.ui())
             .subscribe(
@@ -41,6 +42,6 @@ class PartnersViewModel @Inject constructor(
         stateLiveData.value = Resource.ErrorResource(
             "Error title",
             "Error message"
-        ) // todo databind for errors?
+        )
     }
 }

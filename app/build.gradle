@@ -61,6 +61,9 @@ dependencies {
         because("picasso depends on old version of supportLibraryVersion")
     }
     compileOnly "org.glassfish:javax.annotation:10.0-b28"
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp}"
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "androidx.arch.core:core-testing:${versions.coreTesting}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"

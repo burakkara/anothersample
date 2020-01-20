@@ -26,6 +26,7 @@ buildscript {
                 'gson'              : '2.8.6',
                 'reactivexRxAndroid': '2.1.1',
                 'arch'              : '1.1.0',
+                'okhttp'            : '4.3.1',
         ]
     }
     repositories {
