@@ -6,9 +6,9 @@
     <string name="error_message">Partners failed to load</string>
     <string name="add_partner_info">To add a Verimi partner, please fill the form and click submit button.</string>
     <string name="partner_name">Partner name: </string>
-    <string name="partner_description">Partner description: </string>
-    <string name="partner_name_hint">Partner name</string>
-    <string name="partner_description_hint">Partner description</string>
+    <string name="partner_description">Partner \ndescription: </string>
+    <string name="partner_name_hint">Enter name</string>
+    <string name="partner_description_hint">Enter description</string>
     <string name="submit">SUBMIT</string>
     <string name="add_partner_success_message">Partner is successfully created.</string>
     <string name="add_partner_failure_message">Partner creation has failed.</string>
