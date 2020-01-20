@@ -1,5 +1,7 @@
 package com.example.myapplication.partners.repository
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.myapplication.addpartner.domain.model.AddPartnerRequest
 import com.example.myapplication.architecture.repository.ApiRetroService
 import com.example.myapplication.architecture.repository.HeadersInterceptor
@@ -21,12 +23,17 @@ import javax.inject.Singleton
 class ApiImpl @Inject constructor(
     private val urlProvider: UrlProvider,
     private val headersInterceptor: HeadersInterceptor,
-    private val gsonProvider: GsonProvider
+    private val gsonProvider: GsonProvider,
+    private val context: Context
 ) :
     Api {
     private val service: ApiRetroService = Retrofit.Builder()
         .baseUrl(urlProvider.baseUrl)
-        .client(OkHttpClient.Builder().addInterceptor(headersInterceptor).build())
+        .client(
+            OkHttpClient.Builder().addInterceptor(headersInterceptor).addInterceptor(
+                ChuckerInterceptor(context)
+            ).build()
+        )
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()

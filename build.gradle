@@ -27,12 +27,12 @@ buildscript {
                 'reactivexRxAndroid': '2.1.1',
                 'arch'              : '1.1.0',
                 'okhttp'            : '4.3.1',
+                'chucker'           : '3.0.1',
         ]
     }
     repositories {
         google()
         jcenter()
-
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'

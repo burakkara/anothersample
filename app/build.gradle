@@ -2,7 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+repositories {
+    maven { url "https://jitpack.io" }
 
+}
 android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
@@ -64,6 +67,8 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp}"
+    debugImplementation "com.github.ChuckerTeam.Chucker:library:${versions.chucker}"
+    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:${versions.chucker}"
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "androidx.arch.core:core-testing:${versions.coreTesting}"
     androidTestImplementation "androidx.test.ext:junit:${versions.junitExt}"

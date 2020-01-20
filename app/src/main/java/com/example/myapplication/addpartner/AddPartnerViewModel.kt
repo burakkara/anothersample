@@ -7,6 +7,7 @@ import com.example.myapplication.addpartner.domain.AddPartnerUseCase
 import com.example.myapplication.addpartner.domain.model.AddPartnerNetworkModel
 import com.example.myapplication.architecture.BaseViewModel
 import com.example.myapplication.util.SchedulersProvider
+import com.example.myapplication.util.plusAssign
 import javax.inject.Inject
 
 class AddPartnerViewModel @Inject constructor(
@@ -23,7 +24,7 @@ class AddPartnerViewModel @Inject constructor(
         name: String,
         description: String
     ) {
-        addPartnerUseCase.run(AddPartnerNetworkModel(name = name, description = description))
+        disposables += addPartnerUseCase.run(AddPartnerNetworkModel(name = name, description = description))
             .subscribeOn(schedulersProvider.io())
             .observeOn(schedulersProvider.ui())
             .subscribe(
